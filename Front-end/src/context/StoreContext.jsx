@@ -10,7 +10,7 @@ const StoreContextProvider = (props) => {
 
     const [cartItems,setCartItems] = useState({})
 
-    const url = "https://food-del-backend-r86v.onrender.com"
+    const url = "http://localhost:4000"
 
     const [token,setToken] = useState("")
 
@@ -54,8 +54,18 @@ const StoreContextProvider = (props) => {
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url + "/api/cart/get",{},{headers:{token}})
-        setCartItems(response.data.cartData)
+        if (!token) {
+        setCartItems({});
+        return;
+        }
+
+        try {
+            const response = await axios.post(url + "/api/cart/get",{},{headers:{token}})
+            setCartItems(response.data.cartData || {}); 
+        } catch (error) {
+            console.error("Lỗi khi tải dữ liệu giỏ hàng:", error);
+            setCartItems({});
+        }
     }
 
     useEffect( () =>{
