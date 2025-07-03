@@ -10,7 +10,7 @@ const StoreContextProvider = (props) => {
 
     const [cartItems,setCartItems] = useState({})
 
-    const url = "https://backend-fd-w0ge.onrender.com"
+    const url = "https://backend-fd-56ip.onrender.com"
 
     const [token,setToken] = useState("")
 
