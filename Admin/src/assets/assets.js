@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'https://backend-fd-w0ge.onrender.com'
+export const url = 'https://backend-fd-56ip.onrender.com'
